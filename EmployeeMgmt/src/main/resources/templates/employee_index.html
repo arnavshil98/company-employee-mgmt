@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<div align="center">
+    <h1>List of Employee</h1>
+    <form th:action="@{/getAllEmployees}">
+        Filter:<input type="text" name="keyword" id="keyword" size="15"
+                      th:value="${keyword}" />&nbsp; <input type="submit" value="Search" />&nbsp;
+        <a th:href="@{/showNewEmployeeForm}"
+           class="btn btn-primary btn-sm mb-3"> Add Employee </a>
+    </form>
+    <style >
+        table.tbl {
+            width: 900px;
+            border-collapse: collapse;
+        }
+
+        .tbl th, .tbl td {
+            border: solid 1px #777;
+            padding: 5px;
+        }
+
+        .tbl thead {
+            background-color: lightblue;
+        }
+    </style>
+    <table border="1" class="tbl table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>EMPLOYEE NAME</th>
+            <th>EMAIL</th>
+            <th>PHONE NUMBER</th>
+            <th>ADDRESS</th>
+            <th>CITY</th>
+            <th>PINCODE</th>
+            <th>COMPANY NAME</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employees : ${employees}">
+            <td th:text="${employees.name}"></td>
+            <td th:text="${employees.email}"></td>
+            <td th:text="${employees.phoneNumber}"></td>
+            <td th:text="${employees.address}"></td>
+            <td th:text="${employees.city}"></td>
+            <td th:text="${employees.pin}"></td>
+            <td th:text="${employees.cName}"></td>
+            <td><a
+                    th:href="@{/showEmployeeFormForUpdate/{id}(id=${employees.id})}"
+                    class="btn btn-primary">Update</a> <a
+                    th:href="@{/deleteEmployee/{id}(id=${employees.id})}"
+                    class="btn btn-danger">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

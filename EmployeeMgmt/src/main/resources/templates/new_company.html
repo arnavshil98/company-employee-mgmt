@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Employee Management</h1>
+    <hr>
+    <h2>Create New Company</h2>
+
+    <form action="#" th:action="@{/saveCompany}" th:object="${company}" method="POST">
+        <input type="text" th:field="*{companyName}"
+               placeholder="companyName" class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{contactPerson}"
+               placeholder="contactPerson" class="form-control mb-4 col-4">
+
+        <input type="email" th:field="*{email}" placeholder="email"
+               class="form-control mb-4 col-4">
+
+        <input type="text" th:field="*{phoneNumber}" placeholder="phoneNumber"
+               class="form-control mb-4 col-4" maxlength="10">
+
+        <input type="text" th:field="*{address}" placeholder="address"
+               class="form-control mb-4 col-4">
+
+        <label for="country">Country:</label>
+        <select id="country" th:field="*{country}" class="form-control mb-4 col-4">
+            <option th:each="countryOption : ${countries}" th:value="${countryOption.name}" th:text="${countryOption.name}"></option>
+        </select>
+
+
+
+        <button type="submit" class="btn btn-info col-2">Save
+            Company</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}"> Back to Main Page</a>
+</div>
+</body>
+</html>
