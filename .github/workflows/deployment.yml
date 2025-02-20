@@ -16,7 +16,7 @@ jobs:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '21'
       - name: Build Spring Boot Application
-        run: mvn clean install -f ./company-employee-mgmt/pom.xml
+        run: mvn clean install
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
         with:
