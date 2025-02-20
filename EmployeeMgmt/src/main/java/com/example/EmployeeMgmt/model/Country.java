@@ -1,6 +1,6 @@
 package com.example.EmployeeMgmt.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 @Entity
