@@ -16,7 +16,7 @@ jobs:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '21'
       - name: build project
-        run: mvn clean install -DskipTests
+        run: mvn package
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
         with:
