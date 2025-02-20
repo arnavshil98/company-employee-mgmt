@@ -5,7 +5,8 @@ import com.example.EmployeeMgmt.model.Country;
 import com.example.EmployeeMgmt.repository.CompanyRepository;
 import com.example.EmployeeMgmt.repository.CountryRepo;
 import com.example.EmployeeMgmt.service.CompanyService;
-import javax.annotation.PostConstruct;
+
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

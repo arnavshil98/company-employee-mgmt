@@ -1,7 +1,7 @@
 package com.example.EmployeeMgmt.model;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
