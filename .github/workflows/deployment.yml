@@ -5,26 +5,26 @@ on:
       - master
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-  steps:
-    - name: Checkout source code
-      uses: actions/checkout@v4
-    - name: setup java
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'zulu' # See 'Supported distributions' for available options
-        java-version: '21'
-    - name: build project
-      run: mvn clean install
-    - name: Deploy to EB
-      uses: einaregilsson/beanstalk-deploy@v22
-      with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          application_name: employee-application
-          environment_name: Employee-application-env
-          version_label: 108
-          region: us-east-1
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+      - name: setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '21'
+      - name: build project
+        run: mvn clean install
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v22
+        with:
+            aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+            aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            application_name: 'employee-application'
+            environment_name: 'Employee-application-env'
+            version_label: 108
+            region: us-east-1
+            deployment_package: employee-management.jar
 
