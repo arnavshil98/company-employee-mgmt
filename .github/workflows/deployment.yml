@@ -26,5 +26,5 @@ jobs:
             environment_name: 'Employee-application-env'
             version_label: 108
             region: us-east-1
-            deployment_package: EmployeeMgmt/target/employee-management.jar
+            deployment_package: employee-application/108.zip
 
