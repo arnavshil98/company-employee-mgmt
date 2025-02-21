@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class CompanyController {
+public class CompanyController  {
     @Autowired
     private CompanyServiceImpl companyServiceimpl;
 
