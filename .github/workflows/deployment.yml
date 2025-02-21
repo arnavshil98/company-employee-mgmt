@@ -24,7 +24,7 @@ jobs:
             aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             application_name: 'employee-application'
             environment_name: 'Employee-application-env'
-            version_label: 108
+            version_label: ${{ github.sha }}
             region: us-east-1
-            deployment_package: employee-application/108.zip
+            deployment_package: EmployeeMgmt/target/employee-management.jar
 
